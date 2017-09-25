@@ -60,13 +60,10 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                                             "orbital_period")
                           near_earth_objects <<- df
                           print(df)
-                        },
-                        deleteOldData = function(){
-                          
                         }
                       ))
 
 
 
-nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
+# nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
 
