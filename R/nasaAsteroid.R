@@ -11,6 +11,16 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                           # check if you have saved data before
                           # if not fetch data
                           
+                          # TODO 2
+                          # Add more field to data frame
+                          
+                          # TODO 3
+                          # Think about calculations with those values. Standart deviation, mean, etc.
+                          
+                          # TODO 4
+                          # Answer some questions by implementing functions, such as, how many of them is above of avarage as diameter,
+                          # how many of them dangerous, how many of them have close approach last 6 monts, etc.
+                          
                           # Import httr library to fetch data
                           library(httr)
                           
