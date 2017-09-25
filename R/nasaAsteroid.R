@@ -7,15 +7,21 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                       fields = list(api_key = "character",near_earth_objects = "data.frame"),
                       methods = list(
                         initialize = function(api_key){
+                          # TODO
                           # check if you have saved data before
                           # if not fetch data
+                          
+                          # Import httr library to fetch data
                           library(httr)
-                          asteroids <- GET("https://api.nasa.gov/neo/rest/v1/neo/browse", 
-                                           query = list(api_key = api_key)
-                          )
-                          # near_earth_objects <<- list()
+                          
+                          # Fetch example
+                          # asteroids <- GET("https://api.nasa.gov/neo/rest/v1/neo/browse", 
+                          #                  query = list(api_key = api_key)
+                          # )
                           # result <- content(asteroids)
                           # totalPage <- result$page$total_pages
+                          
+                          # Create a empty data frame
                           df <- data.frame(Name=character(),
                                            absolute_magnitude_h=numeric(),
                                            estimated_diameter_kilometers_min=numeric(),
@@ -24,11 +30,14 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                                            close_approach_data_date=as.Date(character()),
                                            orbital_period=numeric(),stringsAsFactors=FALSE
                           ) 
+                          
+                          # Fetch 5 pages data from api
                           for (page in 1:5){
                             nthPage <- GET("https://api.nasa.gov/neo/rest/v1/neo/browse",
                                               query = list(api_key = api_key,page = page)
                             )
                             result <- content(nthPage)
+                            # Iterate 20 time for each page to take asteroid information.
                             for(i in 1:20){
                               asteroid <- result$near_earth_objects[[i]]
                               Name <- asteroid$name
@@ -49,8 +58,6 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                               ),stringsAsFactors=FALSE)
                             }
                           }
-                          # result <- content(asteroids)
-                          # print(result$near_earth_objects[[20]]$orbital_data$mean_motion)
                           colnames(df) <- c("Name",
                                             "absolute_magnitude_h",
                                             "estimated_diameter_kilometers_min",
@@ -62,7 +69,6 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                           print(df)
                         }
                       ))
-
 
 
 # nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
