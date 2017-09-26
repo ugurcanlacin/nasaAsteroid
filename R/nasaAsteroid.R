@@ -1,5 +1,5 @@
 #' @title Nasa Asteroid Data Analysis
-#' @description You can have data analysis on Asteroids data from NASA Open API
+#' @description Data analysis on nasa asteroid data source NASA Open Api
 #' @field formula Formula
 #' @export nasaAsteroid
 #' @exportClass nasaAsteroid
