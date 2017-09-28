@@ -6,7 +6,7 @@
 \alias{nasaAsteroid}
 \title{Nasa Asteroid Data Analysis}
 \description{
-Data analysis on nasa asteroid data source NASA Open Api
+You can have data analysis on Asteroids data from NASA Open API
 }
 \section{Fields}{
 
