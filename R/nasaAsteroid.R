@@ -19,7 +19,7 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                           
                           # TODO 4
                           # Answer some questions by implementing functions, such as, how many of them is above of avarage as diameter,
-                          # how many of them dangerous, how many of them have close approach last 6 monts, etc.
+                          # how many of them have close approach last 6 monts, etc.
                           
                           # Import httr library to fetch data
                           library(httr)
@@ -114,6 +114,14 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                           cat("Total asteroid is",nrow(near_earth_objects))
                           cat("\n")
                           cat("Total hazardous asteroid number is",nrow(hazardous))
+                        },
+                        summary = function(){
+                          absolute_magnitude_h <- near_earth_objects['absolute_magnitude_h']
+                          mean_anomaly <- near_earth_objects['mean_anomaly']
+                          cat("absolute_magnitude_h mean for asteroids is",apply(absolute_magnitude_h,2,mean))
+                          cat("\n")
+                          # print(mean_anomaly)
+                          # cat("orbital_period mean for asteroids is",apply(mean_anomaly,2,mean))
                         }
                       ))
 
@@ -121,6 +129,7 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
 nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
 
 df <- nasa$returnDataFrame()
+absolute_magnitude_h <- nasa$summary()
 
 # nasa$hazardousAsteroids()
 
