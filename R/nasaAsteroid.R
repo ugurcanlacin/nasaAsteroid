@@ -77,9 +77,14 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                                             "orbital_period")
                           near_earth_objects <<- df
                           print(df)
-                        }
+                        },
+                        Return_absolute_magnitude_h = function(){
+                          "This function returns fitted value."
+                          return(
+                            near_earth_objects$absolute_magnitude_h
+                          ) 
+                          }
                       ))
-
-
+ 
 # nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
-
+# nasa$Return_absolute_magnitude_h()
