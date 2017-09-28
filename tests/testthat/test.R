@@ -1,13 +1,15 @@
-# context("linreg")
+context("nasaAsteroid")
 # 
 # data("iris")
 # 
 # Polygon <- setRefClass("Polygon", fields = c("sides"))
 # square <- Polygon$new(sides = 4)
-# test_that("lenreg rejects errounous input", {
-#   expect_error(linreg_mod <- linreg$new(formula = Petal.Length~Sepdsal.Width+Sepal.Length, data=iris))
-#   expect_error(linreg_mod <- linreg$new(formula = Petal.Length~Sepdsal.Width+Sepal.Length, data=irfsfdis))
-# })
+test_that("Hazardous asteroid is correct", {
+     nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
+  
+    expect_output(nasa$hazardousAsteroids(), "Total asteroid is( )*[0-9]*")  
+    expect_output(nasa$hazardousAsteroids(), "Total hazardous asteroid number is( )*[0-9]*")
+  })
 # 
 # 
 # test_that("class is correct", {
