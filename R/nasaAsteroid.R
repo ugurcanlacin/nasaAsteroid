@@ -83,6 +83,12 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                                           cat("Total asteroid is",nrow(near_earth_objects))
                                           cat("\n")
                                           cat("Total hazardous asteroid number is",nrow(hazardous))
+                        },
+                        summary = function(){
+                          absolute_magnitude_h <- near_earth_objects['absolute_magnitude_h']
+                          mean_anomaly <- near_earth_objects['mean_anomaly']
+                          cat("absolute_magnitude_h mean for asteroids is",apply(absolute_magnitude_h,2,mean))
+                          cat("\n")
                         }
                       ))
 
