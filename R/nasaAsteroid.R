@@ -77,6 +77,12 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                                             "orbital_period")
                           near_earth_objects <<- df
                           print(df)
+                        },
+                        hazardousAsteroids = function(){
+                                          hazardous <- near_earth_objects[near_earth_objects['is_potentially_hazardous_asteroid'] == TRUE,]
+                                          cat("Total asteroid is",nrow(near_earth_objects))
+                                          cat("\n")
+                                          cat("Total hazardous asteroid number is",nrow(hazardous))
                         }
                       ))
 
