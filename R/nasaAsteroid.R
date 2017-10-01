@@ -7,6 +7,9 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                       fields = list(api_key = "character",near_earth_objects = "data.frame"),
                       methods = list(
                         initialize = function(api_key){
+                          if(class(api_key) != "character"){
+                            stop()
+                          }
                           # TODO
                           # check if you have saved data before
                           # if not fetch data
@@ -76,7 +79,7 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                                             "close_approach_data_date",
                                             "orbital_period")
                           near_earth_objects <<- df
-                          print(df)
+                          # print(df)
                         },
                         hazardousAsteroids = function(){
                                           hazardous <- near_earth_objects[near_earth_objects['is_potentially_hazardous_asteroid'] == TRUE,]
