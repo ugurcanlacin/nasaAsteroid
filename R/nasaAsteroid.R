@@ -41,7 +41,14 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                                            estimated_diameter_kilometers_max=numeric(),
                                            is_potentially_hazardous_asteroid=logical(),
                                            close_approach_data_date=as.Date(character()),
-                                           orbital_period=numeric(),stringsAsFactors=FALSE
+                                           orbital_period=numeric(),
+                                           minimum_orbit_intersection=numeric(),
+                                           epoch_osculation=numeric(),
+                                           aphelion_distance=numeric(),
+                                           perihelion_time=numeric(),
+                                           mean_anomaly=numeric(),
+                                           mean_motion=numeric(),
+                                           stringsAsFactors=FALSE
                           ) 
                           
                           # Fetch 5 pages data from api
@@ -60,6 +67,13 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                               is_potentially_hazardous_asteroid <- asteroid$is_potentially_hazardous_asteroid
                               close_approach_data_date <- asteroid$orbital_data$orbit_determination_date
                               orbital_period <- asteroid$orbital_data$orbital_period
+                              
+                              minimum_orbit_intersection <- asteroid$orbital_data$minimum_orbit_intersection
+                              epoch_osculation <- asteroid$orbital_data$epoch_osculation
+                              aphelion_distance <- asteroid$orbital_data$aphelion_distance
+                              perihelion_time <- asteroid$orbital_data$perihelion_time
+                              mean_anomaly <- asteroid$orbital_data$mean_anomaly
+                              mean_motion <- asteroid$orbital_data$mean_motion
                               df <- rbind(df,list(
                                 Name,
                                 absolute_magnitude_h,
@@ -67,7 +81,13 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                                 estimated_diameter_kilometers_max,
                                 is_potentially_hazardous_asteroid,
                                 close_approach_data_date,
-                                orbital_period
+                                orbital_period,
+                                minimum_orbit_intersection,
+                                epoch_osculation,
+                                aphelion_distance,
+                                perihelion_time,
+                                mean_anomaly,
+                                mean_motion
                               ),stringsAsFactors=FALSE)
                             }
                           }
