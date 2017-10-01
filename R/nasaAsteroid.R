@@ -97,7 +97,13 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                                             "estimated_diameter_kilometers_max",
                                             "is_potentially_hazardous_asteroid",
                                             "close_approach_data_date",
-                                            "orbital_period")
+                                            "orbital_period",
+                                            "minimum_orbit_intersection",
+                                            "epoch_osculation",
+                                            "aphelion_distance",
+                                            "perihelion_time",
+                                            "mean_anomaly",
+                                            "mean_motion")
                           near_earth_objects <<- df
                           # print(df)
                         },
