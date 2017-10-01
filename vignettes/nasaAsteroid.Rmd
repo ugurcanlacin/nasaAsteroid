@@ -31,3 +31,13 @@ We are calling field in the data frame from are NASA ASTEROID API which are:
 - close_approach_data_date
 - orbital_period
 
+The package also include different functions which are using data from Nasa Asteroid API for data analysis and perform different function on the data. Which are as follow:
+
+- hazardousAsteroids()
+- summary()
+
+## Shiny Application
+
+Shiny is an R package that makes it easy to build interactive web apps straight from R. You can host standalone apps on a webpage or embed them in R Markdown documents or build dashboards. You can also extend your Shiny apps with CSS themes, htmlwidgets, and JavaScript actions.
+
+We are using shiny R pakage in another package to call the data from our nasa asteroid api and show ot in graphical interface with interactive widgets we are using drop down and histogram graph to represent data.
