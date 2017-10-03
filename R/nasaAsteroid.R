@@ -129,6 +129,18 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                           cat("\n")
                           cat("estimated_diameter_kilometers_min mean for asteroids is",apply(estimated_diameter_kilometers_min,2,mean))
                           cat("\n")
+                        },
+                        medianSummary = function(){
+                          "Calculates median for some columns"
+                          absolute_magnitude_h <- near_earth_objects['absolute_magnitude_h']
+                          estimated_diameter_kilometers_max <- near_earth_objects['estimated_diameter_kilometers_max']
+                          estimated_diameter_kilometers_min <- near_earth_objects['estimated_diameter_kilometers_min']
+                          cat("absolute_magnitude_h median for asteroids is",apply(absolute_magnitude_h,2,median))
+                          cat("\n")
+                          cat("estimated_diameter_kilometers_max median for asteroids is",apply(estimated_diameter_kilometers_max,2,median))
+                          cat("\n")
+                          cat("estimated_diameter_kilometers_min median for asteroids is",apply(estimated_diameter_kilometers_min,2,median))
+                          cat("\n")
                         }
                       ))
 
@@ -137,3 +149,4 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
 # df <- nasa$getAsteroidsAsDataFrame()
 # nasa$hazardousAsteroids()
 # nasa$meanSummary()
+# nasa$medianSummary()
