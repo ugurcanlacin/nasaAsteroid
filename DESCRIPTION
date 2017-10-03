@@ -7,12 +7,11 @@ Author: Ugurcan Lacin, Fahad Hameed
 Maintainer: Any issues, contact: <ugurcanlacin@gmail.com>
 Description: nasaAsteroid
 License: GPL-3
-Depends: R (>= 2.10)
+Depends: R (>= 2.10),httr
 URL: https://github.com/ugurcanlacin/nasaAsteroid
 LazyData: true
 RoxygenNote: 6.0.1
-Depends: httr
-Suggests: testthat, ggplot2,httr,
+Suggests: testthat, ggplot2,
     knitr,
     rmarkdown
 VignetteBuilder: knitr

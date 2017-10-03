@@ -28,6 +28,13 @@ test_that("medianSummary output is correct", {
   expect_output(nasa$medianSummary(), "estimated_diameter_kilometers_max median for asteroids is( )*[0-9]*")
   expect_output(nasa$medianSummary(), "estimated_diameter_kilometers_min median for asteroids is( )*[0-9]*")
 })
+
+test_that("regressionCoefficients output is correct", {
+  nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
+  expect_output(nasa$regressionCoefficients(), "Regression Coefficients:")  
+  expect_output(nasa$regressionCoefficients(), "absolute_magnitude_h estimated_diameter_kilometers_max")
+  expect_output(nasa$regressionCoefficients(), "[0-9]*( )*[0-9]*")
+})
 # 
 # test_that("class is correct", {
 #   linreg_mod <- linreg$new(Petal.Length~Sepal.Width+Sepal.Length, data=iris)

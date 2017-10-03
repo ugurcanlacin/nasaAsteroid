@@ -132,6 +132,9 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                         },
                         medianSummary = function(){
                           "Calculates median for some columns"
+                          
+                          # An asteroid absolute magnitude is the visual magnitude an observer would record 
+                          # if the asteroid were placed 1 Astronomical Unit (au) away, and 1 au from the Sun and at a zero phase angle.
                           absolute_magnitude_h <- near_earth_objects['absolute_magnitude_h']
                           estimated_diameter_kilometers_max <- near_earth_objects['estimated_diameter_kilometers_max']
                           estimated_diameter_kilometers_min <- near_earth_objects['estimated_diameter_kilometers_min']
@@ -141,6 +144,18 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                           cat("\n")
                           cat("estimated_diameter_kilometers_min median for asteroids is",apply(estimated_diameter_kilometers_min,2,median))
                           cat("\n")
+                        },
+                        regressionCoefficients = function(){
+                          customFormula <- absolute_magnitude_h~estimated_diameter_kilometers_max
+                          x<-model.matrix(customFormula,near_earth_objects)
+                          y<-all.vars(customFormula)[1]
+                          y<-as.matrix(near_earth_objects[,names(near_earth_objects)==y])
+                          b_hat<-solve(t(x)%*%x)%*%t(x)%*%y
+                          cat("Regression Coefficients:")
+                          cat("\n")
+                          cat("absolute_magnitude_h estimated_diameter_kilometers_max")
+                          cat("\n")
+                          cat(b_hat)
                         }
                       ))
 
@@ -150,3 +165,5 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
 # nasa$hazardousAsteroids()
 # nasa$meanSummary()
 # nasa$medianSummary()
+# nasa$regressionCoefficients()
+
