@@ -121,12 +121,19 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                         summary = function(){
                           "Calculates mean for some columns"
                           absolute_magnitude_h <- near_earth_objects['absolute_magnitude_h']
-                          mean_anomaly <- near_earth_objects['mean_anomaly']
+                          estimated_diameter_kilometers_max <- near_earth_objects['estimated_diameter_kilometers_max']
+                          estimated_diameter_kilometers_min <- near_earth_objects['estimated_diameter_kilometers_min']
                           cat("absolute_magnitude_h mean for asteroids is",apply(absolute_magnitude_h,2,mean))
+                          cat("\n")
+                          cat("estimated_diameter_kilometers_max mean for asteroids is",apply(estimated_diameter_kilometers_max,2,mean))
+                          cat("\n")
+                          cat("estimated_diameter_kilometers_min mean for asteroids is",apply(estimated_diameter_kilometers_min,2,mean))
                           cat("\n")
                         }
                       ))
 
 
 # nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
-
+# df <- nasa$getAsteroidsAsDataFrame()
+# nasa$hazardousAsteroids()
+# nasa$summary()
