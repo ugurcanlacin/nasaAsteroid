@@ -14,7 +14,7 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                           # check if you have saved data before
                           # if not fetch data
                           
-                          # TODO 2
+                          # TODO 2 - DONE
                           # Add more field to data frame
                           
                           # TODO 3
@@ -107,20 +107,33 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                           near_earth_objects <<- df
                           # print(df)
                         },
+                        getAsteroidsAsDataFrame = function(){
+                          "Return asteroids as data frame"
+                          return(near_earth_objects)
+                        },
                         hazardousAsteroids = function(){
+                          "Calculates how many asteroids are there and how many of them are hazardous"
                                           hazardous <- near_earth_objects[near_earth_objects['is_potentially_hazardous_asteroid'] == TRUE,]
                                           cat("Total asteroid is",nrow(near_earth_objects))
                                           cat("\n")
                                           cat("Total hazardous asteroid number is",nrow(hazardous))
                         },
                         summary = function(){
+                          "Calculates mean for some columns"
                           absolute_magnitude_h <- near_earth_objects['absolute_magnitude_h']
-                          mean_anomaly <- near_earth_objects['mean_anomaly']
+                          estimated_diameter_kilometers_max <- near_earth_objects['estimated_diameter_kilometers_max']
+                          estimated_diameter_kilometers_min <- near_earth_objects['estimated_diameter_kilometers_min']
                           cat("absolute_magnitude_h mean for asteroids is",apply(absolute_magnitude_h,2,mean))
+                          cat("\n")
+                          cat("estimated_diameter_kilometers_max mean for asteroids is",apply(estimated_diameter_kilometers_max,2,mean))
+                          cat("\n")
+                          cat("estimated_diameter_kilometers_min mean for asteroids is",apply(estimated_diameter_kilometers_min,2,mean))
                           cat("\n")
                         }
                       ))
 
 
-# nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
-
+nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
+df <- nasa$getAsteroidsAsDataFrame()
+# nasa$hazardousAsteroids()
+nasa$summary()
