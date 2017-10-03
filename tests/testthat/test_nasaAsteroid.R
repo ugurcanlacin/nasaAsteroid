@@ -35,6 +35,13 @@ test_that("regressionCoefficients output is correct", {
   expect_output(nasa$regressionCoefficients(), "absolute_magnitude_h estimated_diameter_kilometers_max")
   expect_output(nasa$regressionCoefficients(), "[0-9]*( )*[0-9]*")
 })
+
+test_that("fittedValues output is correct", {
+  nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
+  expect_output(nasa$fittedValues(), "Fitted Values:")  
+})
+
+
 # 
 # test_that("class is correct", {
 #   linreg_mod <- linreg$new(Petal.Length~Sepal.Width+Sepal.Length, data=iris)
