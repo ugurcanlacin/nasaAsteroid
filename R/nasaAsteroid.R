@@ -107,13 +107,19 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                           near_earth_objects <<- df
                           # print(df)
                         },
+                        getAsteroidsAsDataFrame = function(){
+                          "Return asteroids as data frame"
+                          return(near_earth_objects)
+                        },
                         hazardousAsteroids = function(){
-                                          hazardous <- near_earth_objects[near_earth_objects['is_potentially_hazardous_asteroid'] == TRUE,]
-                                          cat("Total asteroid is",nrow(near_earth_objects))
-                                          cat("\n")
-                                          cat("Total hazardous asteroid number is",nrow(hazardous))
+                          "Calculates how many asteroids are there and how many of them are hazardous"
+                            hazardous <- near_earth_objects[near_earth_objects['is_potentially_hazardous_asteroid'] == TRUE,]
+                            cat("Total asteroid is",nrow(near_earth_objects))
+                            cat("\n")
+                            cat("Total hazardous asteroid number is",nrow(hazardous))
                         },
                         summary = function(){
+                          "Calculates mean for some columns"
                           absolute_magnitude_h <- near_earth_objects['absolute_magnitude_h']
                           mean_anomaly <- near_earth_objects['mean_anomaly']
                           cat("absolute_magnitude_h mean for asteroids is",apply(absolute_magnitude_h,2,mean))
