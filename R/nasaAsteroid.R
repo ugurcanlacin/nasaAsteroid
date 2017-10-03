@@ -118,7 +118,7 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                             cat("\n")
                             cat("Total hazardous asteroid number is",nrow(hazardous))
                         },
-                        summary = function(){
+                        meanSummary = function(){
                           "Calculates mean for some columns"
                           absolute_magnitude_h <- near_earth_objects['absolute_magnitude_h']
                           estimated_diameter_kilometers_max <- near_earth_objects['estimated_diameter_kilometers_max']
@@ -136,4 +136,4 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
 # nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
 # df <- nasa$getAsteroidsAsDataFrame()
 # nasa$hazardousAsteroids()
-# nasa$summary()
+# nasa$meanSummary()

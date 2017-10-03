@@ -15,7 +15,12 @@ test_that("Wrong input throws an error.", {
 })
  
 
-
+test_that("meanSummary output is correct", {
+  nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
+  expect_output(nasa$meanSummary(), "absolute_magnitude_h mean for asteroids is( )*[0-9]*")  
+  expect_output(nasa$meanSummary(), "estimated_diameter_kilometers_max mean for asteroids is( )*[0-9]*")
+  expect_output(nasa$meanSummary(), "estimated_diameter_kilometers_min mean for asteroids is( )*[0-9]*")
+})
 # 
 # test_that("class is correct", {
 #   linreg_mod <- linreg$new(Petal.Length~Sepal.Width+Sepal.Length, data=iris)
