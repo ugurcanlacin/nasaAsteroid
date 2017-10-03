@@ -4,7 +4,7 @@
 #' @export nasaAsteroid
 #' @exportClass nasaAsteroid
 nasaAsteroid <- setRefClass("nasaAsteroid",
-                      fields = list(api_key = "character",near_earth_objects = "data.frame"),
+                      fields = list(api_key = "character",near_earth_objects = "data.frame",b_hat="matrix",y_fits="matrix",e="matrix"),
                       methods = list(
                         initialize = function(api_key){
                           if(class(api_key) != "character"){
@@ -105,6 +105,14 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                                             "mean_anomaly",
                                             "mean_motion")
                           near_earth_objects <<- df
+                          
+                          customFormula <- absolute_magnitude_h~estimated_diameter_kilometers_max
+                          x<-model.matrix(customFormula,near_earth_objects)
+                          y<-all.vars(customFormula)[1]
+                          y<-as.matrix(near_earth_objects[,names(near_earth_objects)==y])
+                          b_hat<<-solve(t(x)%*%x)%*%t(x)%*%y
+                          y_fits<<-x%*%b_hat
+                          e<<-y-y_fits
                           # print(df)
                         },
                         getAsteroidsAsDataFrame = function(){
@@ -147,11 +155,7 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                         },
                         regressionCoefficients = function(){
                           "Regression Coefficient calculation"
-                          customFormula <- absolute_magnitude_h~estimated_diameter_kilometers_max
-                          x<-model.matrix(customFormula,near_earth_objects)
-                          y<-all.vars(customFormula)[1]
-                          y<-as.matrix(near_earth_objects[,names(near_earth_objects)==y])
-                          b_hat<-solve(t(x)%*%x)%*%t(x)%*%y
+                          
                           cat("Regression Coefficients:")
                           cat("\n")
                           cat("absolute_magnitude_h estimated_diameter_kilometers_max")
@@ -160,17 +164,16 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                         },
                         fittedValues = function(){
                           "Fitted Values calculation"
-                          customFormula <- absolute_magnitude_h~estimated_diameter_kilometers_max
-                          x<-model.matrix(customFormula,near_earth_objects)
-                          y<-all.vars(customFormula)[1]
-                          y<-as.matrix(near_earth_objects[,names(near_earth_objects)==y])
-                          b_hat<-solve(t(x)%*%x)%*%t(x)%*%y
-                          y_fits<-x%*%b_hat
                           cat("Fitted Values:")
                           cat("\n")
                           cat(as.numeric(y_fits))
+                        },
+                        residuals = function(){
+                          "Residuals calculation"
+                          cat("Residuals:")
+                          cat("\n")
+                          cat(as.numeric(e))
                         }
-                        
                       ))
 
 
@@ -181,4 +184,5 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
 # nasa$medianSummary()
 # nasa$regressionCoefficients()
 # nasa$fittedValues()
+# nasa$residuals()
 
