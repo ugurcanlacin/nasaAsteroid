@@ -25,7 +25,7 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                           # how many of them dangerous, how many of them have close approach last 6 monts, etc.
                           
                           # Import httr library to fetch data
-                          library(httr)
+                          # library(httr)
                           
                           # Fetch example
                           # asteroids <- GET("https://api.nasa.gov/neo/rest/v1/neo/browse", 

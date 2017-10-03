@@ -11,6 +11,7 @@ Depends: R (>= 2.10)
 URL: https://github.com/ugurcanlacin/nasaAsteroid
 LazyData: true
 RoxygenNote: 6.0.1
+Depends: httr
 Suggests: testthat, ggplot2,httr,
     knitr,
     rmarkdown
