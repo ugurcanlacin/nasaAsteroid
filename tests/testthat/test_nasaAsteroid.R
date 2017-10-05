@@ -19,6 +19,16 @@ test_that("Wrong input throws an error.", {
   expect_error(nasaAsteroid(asasa)) 
 })
  
+test_that("is data frame",{
+  nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
+  expect_that(is.data.frame(nasa$df),
+              is_true())
+})
+
+test_that("is getAsteroidsAsDataFrame data frame",{
+  nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
+  expect_that(nasa$df, equals(nasa$getAsteroidsAsDataFrame()))
+})
 
 test_that("meanSummary output is correct", {
   nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
