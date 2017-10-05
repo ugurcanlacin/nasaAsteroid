@@ -30,6 +30,11 @@ test_that("is getAsteroidsAsDataFrame data frame",{
   expect_that(nasa$df, equals(nasa$getAsteroidsAsDataFrame()))
 })
 
+test_that("residuals output is correct", {
+  nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
+  expect_output(nasa$residuals(), "Residuals:")  
+})
+
 test_that("meanSummary output is correct", {
   nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
   expect_output(nasa$meanSummary(), "absolute_magnitude_h mean for asteroids is( )*[0-9]*")  

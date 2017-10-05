@@ -186,3 +186,4 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
 # nasa$fittedValues()
 # nasa$residuals()
 
+
