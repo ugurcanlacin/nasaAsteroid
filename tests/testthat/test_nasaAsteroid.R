@@ -21,13 +21,13 @@ test_that("Wrong input throws an error.", {
  
 test_that("is data frame",{
   nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
-  expect_that(is.data.frame(nasa$df),
+  expect_that(is.data.frame(nasa$near_earth_objects),
               is_true())
 })
 
 test_that("is getAsteroidsAsDataFrame data frame",{
   nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
-  expect_that(nasa$df, equals(nasa$getAsteroidsAsDataFrame()))
+  expect_that(nasa$near_earth_objects, equals(nasa$getAsteroidsAsDataFrame()))
 })
 
 test_that("residuals output is correct", {
