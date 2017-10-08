@@ -2,3 +2,4 @@
 
 export(nasaAsteroid)
 exportClasses(nasaAsteroid)
+importFrom(methods,new)

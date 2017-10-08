@@ -6,7 +6,7 @@
 \alias{nasaAsteroid}
 \title{Nasa Asteroid Data Analysis}
 \description{
-You can have data analysis on Asteroids data from NASA Open API
+Data analysis on nasa asteroid data source NASA Open Api
 }
 \section{Fields}{
 
@@ -14,4 +14,21 @@ You can have data analysis on Asteroids data from NASA Open API
 \item{\code{formula}}{Formula}
 }}
 
+\section{Methods}{
+
+\describe{
+\item{\code{fittedValues()}}{Fitted Values calculation}
+
+\item{\code{getAsteroidsAsDataFrame()}}{Return asteroids as data frame}
+
+\item{\code{hazardousAsteroids()}}{Calculates how many asteroids are there and how many of them are hazardous}
+
+\item{\code{meanSummary()}}{Calculates mean for some columns}
+
+\item{\code{medianSummary()}}{Calculates median for some columns}
+
+\item{\code{regressionCoefficients()}}{Regression Coefficient calculation}
+
+\item{\code{residuals()}}{Residuals calculation}
+}}
 

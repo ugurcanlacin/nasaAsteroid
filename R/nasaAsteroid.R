@@ -1,6 +1,7 @@
 #' @title Nasa Asteroid Data Analysis
 #' @description Data analysis on nasa asteroid data source NASA Open Api
 #' @field formula Formula
+#' @importFrom methods new
 #' @export nasaAsteroid
 #' @exportClass nasaAsteroid
 nasaAsteroid <- setRefClass("nasaAsteroid",
