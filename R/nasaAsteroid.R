@@ -178,7 +178,7 @@ nasaAsteroid <- setRefClass("nasaAsteroid",
                       ))
 
 
-# nasa <- nasaAsteroid$new("tYWfgxjr4fPL3KYfmtzWGQvmLcxe7fCciJ3hZjuz")
+nasa <- nasaAsteroid$new("NWqzvodQTYMM5cyNd5753dOtfqvzvbsQB73o42xB")
 # df <- nasa$getAsteroidsAsDataFrame()
 # nasa$hazardousAsteroids()
 # nasa$meanSummary()
